@@ -13,7 +13,9 @@ namespace TestTask
     {
         static void Main(string[] args)
         {
-            Words w = new Words("dictionary.txt");
+            Console.Write("Please, enter path to the dictionary: ");
+            string path = Console.ReadLine();
+            Dictionary words = new Dictionary(path);
             Console.Write("Please, enter your word: ");
             string request = Console.ReadLine();
             if (request == "###")
@@ -24,7 +26,7 @@ namespace TestTask
             }
             else
             {
-                w.Complete(request);
+                words.Complete(request);
             }
             Console.ReadKey(true);
         }

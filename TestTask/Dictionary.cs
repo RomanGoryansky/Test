@@ -7,11 +7,11 @@ using System.IO;
 
 namespace TestTask
 {
-    class Words
+    class Dictionary
     {
         public SortedSet<string> sortedWords;
 
-        public Words(string path)
+        public Dictionary(string path)
         {
             string[] readedwords = File.ReadAllLines(path, Encoding.GetEncoding(1251));
             sortedWords = new SortedSet<string>(readedwords);
