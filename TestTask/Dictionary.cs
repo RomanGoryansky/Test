@@ -18,6 +18,11 @@ namespace TestTask
         }
         public void Complete(string request)                //метод, реализующий дополнение
         {
+            if(request == "")
+            {
+                Console.WriteLine("You didn't enter nothing");
+                return;
+            }
             int count = 0;                                  //счетчик количества выводимых в консоль слов
             foreach (string word in sortedWords)
                 if (word.StartsWith(request) && count <= 4)
