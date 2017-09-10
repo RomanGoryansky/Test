@@ -13,20 +13,27 @@ namespace TestTask
     {
         static void Main(string[] args)
         {
-            Console.Write("Please, enter path to the dictionary: ");
-            string path = Console.ReadLine();
-            Dictionary words = new Dictionary(path);
-            Console.Write("Please, enter your word: ");
-            string request = Console.ReadLine();
-            if (request == "###")
+            try
             {
-                Console.Write("Application is over");
-                Thread.Sleep(2000);
-                return;
+                Console.Write("Please, enter path to the dictionary: ");
+                string path = Console.ReadLine();
+                Dictionary words = new Dictionary(path);
+                Console.Write("Please, enter your word: ");
+                string request = Console.ReadLine();
+                if (request == "###")
+                {
+                    Console.Write("Application complete ");
+                    Thread.Sleep(2000);
+                    return;
+                }
+                else
+                {
+                    words.Complete(request);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                words.Complete(request);
+                Console.WriteLine(ex.Message);
             }
             Console.ReadKey(true);
         }
